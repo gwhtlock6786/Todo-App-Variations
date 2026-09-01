@@ -1,8 +1,10 @@
+import "./TodoItem.css";
+
 const TodoItem = ({ numberId, title, completed }) => {
   const todoClass = completed ? "done" : "undone";
 
   return (
-    <div>
+    <div className="todo-item">
       <p>{numberId}</p>
       <p className={todoClass}>{title}</p>
     </div>

@@ -1,8 +1,9 @@
 import TodoItem from "../Todo-Item/TodoItem.jsx";
+import "./TodoList.css";
 
 const TodoList = ({ todos }) => {
   return (
-    <div>
+    <div class="todo-container">
       {todos.map((todoItem) => (
         <TodoItem
           key={todoItem.id}
