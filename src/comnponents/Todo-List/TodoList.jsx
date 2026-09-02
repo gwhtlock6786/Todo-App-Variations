@@ -4,6 +4,7 @@ import "./TodoList.css";
 const TodoList = ({ todos }) => {
   return (
     <div class="todo-container">
+      <h1>Todo List</h1>
       {todos.map((todoItem) => (
         <TodoItem
           key={todoItem.id}
