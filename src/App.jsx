@@ -1,25 +1,31 @@
 import { useState } from "react";
-import todos from "./data/todo-data";
+import initialTodos from "./data/todo-data";
 import "./App.css";
 import TodoList from "./comnponents/Todo-List/TodoList.jsx";
 import AddTodo from "./comnponents/Add-Todo/AddTodo.jsx";
 
 function App() {
-  const [initialTodos, setTodos] = useState(todos);
+  const [todos, setTodos] = useState(initialTodos);
+
+  const nextId = todos.length > 0 ? Math.max(...todos.map((t) => t.id)) + 1 : 1;
 
   const addTodo = (todo) => {
     const newTodo = {
-      id: initialTodos.length + 1,
+      id: nextId,
       title: todo,
       completed: false,
     };
 
-    setTodos([...initialTodos, newTodo]);
+    setTodos([...todos, newTodo]);
+  };
+
+  const deleteTodo = (todoID) => {
+    setTodos(todos.filter((t) => t.id !== todoID));
   };
 
   return (
     <>
-      <TodoList todos={initialTodos} />
+      <TodoList todos={todos} deleteTodo={deleteTodo} />
       <hr />
       <AddTodo addTodo={addTodo} />
     </>
