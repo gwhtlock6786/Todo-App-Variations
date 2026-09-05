@@ -6,6 +6,7 @@ import AddTodo from "./comnponents/Add-Todo/AddTodo.jsx";
 
 function App() {
   const [todos, setTodos] = useState(initialTodos);
+  const [filterStatus, setFilterStatus] = useState("all");
 
   const nextId = todos.length > 0 ? Math.max(...todos.map((t) => t.id)) + 1 : 1;
 
@@ -31,12 +32,38 @@ function App() {
     setTodos(todos.filter((t) => t.id !== todoID));
   };
 
+  const filterTodos = (filter) => {
+    switch (filter) {
+      case "completed":
+        setFilterStatus("completed");
+        break;
+      case "incomplete":
+        setFilterStatus("incomplete");
+        break;
+      default:
+        setFilterStatus("all");
+    }
+  };
+
+  const displayedTodos = () => {
+    switch (filterStatus) {
+      case "completed":
+        return todos.filter((todo) => todo.completed);
+      case "incomplete":
+        return todos.filter((todo) => !todo.completed);
+      default:
+        return todos;
+    }
+  };
+
   return (
     <>
       <TodoList
-        todos={todos}
+        todos={displayedTodos()}
         deleteTodo={deleteTodo}
         completeTodo={completeTodo}
+        filterTodos={filterTodos}
+        filterStatus={filterStatus}
       />
       <hr />
       <AddTodo addTodo={addTodo} />
