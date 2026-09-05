@@ -1,7 +1,7 @@
 import TodoItem from "../Todo-Item/TodoItem.jsx";
 import "./TodoList.css";
 
-const TodoList = ({ todos, deleteTodo }) => {
+const TodoList = ({ todos, deleteTodo, completeTodo }) => {
   return (
     <div className="todo-container">
       <h1>Todo List</h1>
@@ -12,6 +12,7 @@ const TodoList = ({ todos, deleteTodo }) => {
           title={todoItem.title}
           completed={todoItem.completed}
           deleteTodo={deleteTodo}
+          completeTodo={completeTodo}
         />
       ))}
     </div>

@@ -19,13 +19,25 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const completeTodo = (todoId) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo,
+      ),
+    );
+  };
+
   const deleteTodo = (todoID) => {
     setTodos(todos.filter((t) => t.id !== todoID));
   };
 
   return (
     <>
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+      <TodoList
+        todos={todos}
+        deleteTodo={deleteTodo}
+        completeTodo={completeTodo}
+      />
       <hr />
       <AddTodo addTodo={addTodo} />
     </>

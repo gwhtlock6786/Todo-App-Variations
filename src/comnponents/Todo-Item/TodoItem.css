@@ -45,3 +45,37 @@
   outline: 3px solid #333;
   outline-offset: 2px;
 }
+
+.done {
+  text-decoration: line-through;
+  color: black;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.complete-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.complete-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.complete-btn:focus-visible {
+  outline: 3px solid #333;
+  outline-offset: 2px;
+}
