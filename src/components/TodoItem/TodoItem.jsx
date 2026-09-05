@@ -1,9 +1,10 @@
 import { FaCheck, FaUndo } from "react-icons/fa";
 import { FiXCircle } from "react-icons/fi";
+import "./TodoItem.css";
 
 const TodoItem = ({ todo }) => {
   return (
-    <div>
+    <div className="todo-item-container">
       <p>{todo.id}</p>
       <p>{todo.text}</p>
 
