@@ -1,11 +1,16 @@
 import { useState } from "react";
 import initialTodos from "./data/todo-data";
 import "./App.css";
-import TodoList from "./comnponents/Todo-List/TodoList.jsx";
-import AddTodo from "./comnponents/Add-Todo/AddTodo.jsx";
+import TodoList from "./components/TodoList/TodoList";
 
 function App() {
-  return <></>;
+  const [todos] = useState(initialTodos);
+
+  return (
+    <>
+      <TodoList todos={todos} />
+    </>
+  );
 }
 
 export default App;
